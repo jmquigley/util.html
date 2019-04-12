@@ -43,3 +43,7 @@ test("Test changing newlines to the html break tag", () => {
 	assert(newlineToBreak(`\rtest\r`) === "<br />test<br />");
 	assert(newlineToBreak(`\nte\nst\r`) === "<br />te<br />st<br />");
 });
+
+test("Test using multiple break strings", () => {
+	assert(newlineToBreak("test\n", 2) === "test<br /><br />");
+});

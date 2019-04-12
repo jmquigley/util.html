@@ -1,7 +1,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#newlineToBreak">newlineToBreak(str)</a> ⇒</dt>
+<dt><a href="#newlineToBreak">newlineToBreak(str, count)</a> ⇒</dt>
 <dd><p>Takes a string that may contain newline characters and converts the
 newlines to <br />.</p>
 </dd>
@@ -23,7 +23,7 @@ before the trim (so it can remove all types of spaces)</p>
 
 <a name="newlineToBreak"></a>
 
-## newlineToBreak(str) ⇒
+## newlineToBreak(str, count) ⇒
 Takes a string that may contain newline characters and converts the
 newlines to <br />.
 
@@ -32,6 +32,8 @@ newlines to <br />.
 **Params**
 
 - str <code>string</code> - the string to search for newlines to replace
+- count <code>number</code> <code> = 1</code> - the number of times each break string
+should be repeated.  The default is to only have one string.
 
 <a name="parseHTML"></a>
 

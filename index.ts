@@ -30,10 +30,13 @@ if (isBrowser() && "DOMParser" in window) {
  * Takes a string that may contain newline characters and converts the
  * newlines to <br />.
  * @param str {string} - the string to search for newlines to replace
+ * @param count=1 {number} - the number of times each break string
+ * should be repeated.  The default is to only have one string.
  * @return a new string with newlines replaced with <br />
  */
-export function newlineToBreak(str: string): string {
-	return str.replace(/\r\n|\n|\r/g, "<br />");
+export function newlineToBreak(str: string, count: number = 1): string {
+	const brk: string = "<br />".repeat(count);
+	return str.replace(/\r\n|\n|\r/g, brk);
 }
 
 /**

@@ -7,7 +7,8 @@ newlines to <br />.</p>
 </dd>
 <dt><a href="#parseHTML">parseHTML(html)</a> ⇒</dt>
 <dd><p>Takes a string of HTML and uses the DOMParser class to parse it into
-HTML nodes.</p>
+HTML nodes.  This function will work outside of a browser environment
+by using JSDOM when the browser window is not available.</p>
 </dd>
 <dt><a href="#translateHTML">translateHTML(text)</a> ⇒ <code>string</code></dt>
 <dd><p>Takes an input string and replaces special HTML tokens with their string
@@ -36,7 +37,8 @@ newlines to <br />.
 
 ## parseHTML(html) ⇒
 Takes a string of HTML and uses the DOMParser class to parse it into
-HTML nodes.
+HTML nodes.  This function will work outside of a browser environment
+by using JSDOM when the browser window is not available.
 
 **Kind**: global function  
 **Returns**: an HTML Document instance  

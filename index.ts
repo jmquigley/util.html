@@ -38,7 +38,8 @@ export function newlineToBreak(str: string): string {
 
 /**
  * Takes a string of HTML and uses the DOMParser class to parse it into
- * HTML nodes.
+ * HTML nodes.  This function will work outside of a browser environment
+ * by using JSDOM when the browser window is not available.
  * @param html {string} - text string with HTML tags
  * @return an HTML Document instance
  */

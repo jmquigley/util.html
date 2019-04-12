@@ -1,5 +1,5 @@
 const pkg = require("./package.json");
-process.env["DEBUG"] = pkg.debug ? "*" : "";
+process.env["DEBUG"] = pkg.debug ? "util.html*" : "";
 
 // Increases the default testing timout from 5s to 20s for long running
 // tests (such as the dynamic list error test)

@@ -952,6 +952,15 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/jsdom@^12.2.3":
+  version "12.2.3"
+  resolved "https://registry.yarnpkg.com/@types/jsdom/-/jsdom-12.2.3.tgz#e5f037579d1bde5b6e52b9b74cbcb924eca9a4c6"
+  integrity sha512-CxYWGFsBs0VZ/lU9zxfWk7zYfOlQQuSs5yzk34KW/vQQJGE8OGOYxJnqj9kGHE1SBZGVJvhXs1TafIpZL8RvXw==
+  dependencies:
+    "@types/node" "*"
+    "@types/tough-cookie" "*"
+    parse5 "^4.0.0"
+
 "@types/lodash@^4.14.123":
   version "4.14.123"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.123.tgz#39be5d211478c8dd3bdae98ee75bb7efe4abfe4d"
@@ -984,6 +993,11 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+
+"@types/tough-cookie@*":
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-2.3.5.tgz#9da44ed75571999b65c37b60c9b2b88db54c585d"
+  integrity sha512-SCcK7mvGi3+ZNz833RRjFIxrn4gI1PPR3NtuIS+6vMkvmsGjosqTJwRt5bAEFLRz+wtJMWv8+uOnZf2hi2QXTg==
 
 "@types/yargs@^12.0.2", "@types/yargs@^12.0.9":
   version "12.0.12"
@@ -5444,7 +5458,7 @@ parse-passwd@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
 
-parse5@4.0.0:
+parse5@4.0.0, parse5@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
@@ -7026,6 +7040,11 @@ util.constants@^0.0.25:
   resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.25.tgz#bae0db879394c1b8304e6b2fd3afa9133c9628b2"
   integrity sha512-VuKucdlkz9gwCisIl0+uwRqXYLUtCaus05AJaK3wIQ/BW21tdwYIav1/mjf8gL/fRPc8rIah83GBOVMui4o27w==
 
+util.constants@^0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/util.constants/-/util.constants-0.0.26.tgz#904d5c9e98bd98899f05990fead82cb8238273a8"
+  integrity sha512-R4pHkhVeeiX0QHHM1YNpRFyYFrcA+V7Dt1C6RHrB29za6munkeV3Sknx3IWdb4gzeiGALVAEIW/GTX1nSnnZIg==
+
 util.filelist@0.0.36:
   version "0.0.36"
   resolved "https://registry.yarnpkg.com/util.filelist/-/util.filelist-0.0.36.tgz#d7e57c92dd26f76bca33b5fef4bfd046ec952fc9"
@@ -7110,6 +7129,15 @@ util.toolbox@0.0.74:
   integrity sha512-4EWFvueJsZP9uFQnvPjf+wUIA9sZMQnbptNtlwuuH3y/zdaYzXjEkiizWB9gzpHrDH4DJHjyeYKOL8i0pw4h7g==
   dependencies:
     util.constants "^0.0.25"
+    util.rstrip "0.0.53"
+    uuid "^3.3.2"
+
+util.toolbox@^0.0.77:
+  version "0.0.77"
+  resolved "https://registry.yarnpkg.com/util.toolbox/-/util.toolbox-0.0.77.tgz#562c572ac373e2eeac67a88a3e679bd6dde9ee76"
+  integrity sha512-W0PFgIJBKs1h6I60wDtxBtH64DfFJQ1D9C2r40pGo0WFsfM+GoLI9ynxVJSeYow8ceuD1XLEh9vhtMHrhF3Zkg==
+  dependencies:
+    util.constants "^0.0.26"
     util.rstrip "0.0.53"
     uuid "^3.3.2"
 

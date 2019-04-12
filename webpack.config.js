@@ -19,7 +19,7 @@ module.exports = {
 	resolveLoader: {
 		modules: [path.join(__dirname, "node_modules")]
 	},
-	externals: ["lodash"],
+	externals: ["jsdom", "lodash"],
 	module: {
 		rules: [
 			{

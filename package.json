@@ -25,7 +25,10 @@
 		"index.d.ts"
 	],
 	"dependencies": {
-		"lodash": "^4.17.11"
+		"jsdom": "^14.0.0",
+		"lodash": "^4.17.11",
+		"util.constants": "^0.0.26",
+		"util.toolbox": "^0.0.77"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.3",
@@ -39,6 +42,7 @@
 		"@babel/runtime": "^7.4.3",
 		"@types/fs-extra": "5.0.5",
 		"@types/jest": "^24.0.11",
+		"@types/jsdom": "^12.2.3",
 		"@types/lodash": "^4.14.123",
 		"@types/node": "^11.13.4",
 		"@types/power-assert": "^1.5.0",
@@ -72,7 +76,6 @@
 		"build:cjs": "babel index.ts --sourceType module --out-file index.cjs.min.js",
 		"build:es": "minify index.js --sourceType module --out-file index.es.min.js",
 		"build:umd": "pkgwrap --build --webpack",
-		"build:cli": "babel cli.js --out-file cli.js",
 		"clean": "pkgwrap --clean",
 		"clean:dist": "yarn clean && rimraf node_modules/ yarn.lock",
 		"coverage": "pkgwrap --coverage --jest",

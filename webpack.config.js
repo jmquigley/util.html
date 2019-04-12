@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const pkg = require("./package.json");
 
 let mode = process.env.NODE_ENV || "development";
+let externals = Object.keys(pkg.dependencies);
 
 module.exports = {
 	mode,
@@ -19,7 +20,7 @@ module.exports = {
 	resolveLoader: {
 		modules: [path.join(__dirname, "node_modules")]
 	},
-	externals: ["jsdom", "lodash"],
+	externals,
 	module: {
 		rules: [
 			{

@@ -1,6 +1,6 @@
 {
 	"name": "util.html",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "HTML helper functions",
 	"private": false,
@@ -25,10 +25,12 @@
 		"index.d.ts"
 	],
 	"dependencies": {
+		"canvas": "^2.4.1",
 		"jsdom": "^14.0.0",
 		"lodash": "^4.17.11",
 		"util.constants": "^0.0.26",
-		"util.toolbox": "^0.0.77"
+		"util.toolbox": "^0.0.77",
+		"ws": "^6.2.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.3",

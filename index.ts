@@ -13,7 +13,6 @@ const chevrons = {
 };
 
 const s = Object.keys(chevrons).join("|");
-debug("Using chevrons: %s", s);
 
 const reHTML: RegExp = RegExp(`&(${s});`, "gi");
 const reSPC: RegExp = RegExp(`${sp}`, "g");

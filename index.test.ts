@@ -1,26 +1,8 @@
 import assert from "power-assert";
 import {sp} from "util.constants";
-import {Fixture} from "util.fixture";
-import {newlineToBreak, parseHTML, translateHTML, trimHTML} from "../index";
+import {newlineToBreak, translateHTML, trimHTML} from "./index";
 
 const debug = require("debug")("util.html::test");
-
-test("Parse a simple HTML file into nodes", () => {
-	const fixture = new Fixture("simple");
-	assert(fixture);
-
-	const html = fixture.read("test.html");
-	assert(html);
-
-	const nodes = parseHTML(html);
-	assert(nodes);
-
-	nodes.querySelectorAll("*").forEach((it: HTMLElement) => {
-		assert(it);
-		expect(it).toMatchSnapshot();
-		debug(" -> %O, %o", it, it.nodeName);
-	});
-});
 
 test("Test translation of HTML string entities", () => {
 	assert(translateHTML("abc &quot; def") === 'abc " def');

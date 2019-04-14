@@ -34,6 +34,5 @@ This module contains custom HTML manipulation functions.
 #### functions
 
 - [newlineToBreak](docs/index.md#newlineToBreak) - takes a string with newline characters and replaces them with `<br />`
-- [parseHTML](docs/index.md#parseHTML) - takes an HTML string and parses it into a [Document](https://developer.mozilla.org/en-US/docs/Web/API/Document) object where the nodes can be traversed.  It uses [DOMParser](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser).
 - [translateHTML](docs/index.md#translateHTML) - converts special HTML characters to their single character equivalents (such as `&quote;` to `"`).
 - [trimHTML](docs/index.md#trimHTML) - special trim function to remove spaces from the front/end of an HTML string.

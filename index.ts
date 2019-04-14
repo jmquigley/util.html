@@ -1,8 +1,4 @@
-import {JSDOM} from "jsdom";
 import {sp} from "util.constants";
-import {isBrowser} from "util.toolbox";
-
-const debug = require("debug")("util.html");
 
 const chevrons = {
 	quot: '"',
@@ -17,14 +13,6 @@ const s = Object.keys(chevrons).join("|");
 const reHTML: RegExp = RegExp(`&(${s});`, "gi");
 const reSPC: RegExp = RegExp(`${sp}`, "g");
 
-let domParser: DOMParser;
-if (isBrowser() && "DOMParser" in window) {
-	domParser = new (window as any).DOMParser();
-} else {
-	const dom = new JSDOM();
-	domParser = new dom.window.DOMParser();
-}
-
 /**
  * Takes a string that may contain newline characters and converts the
  * newlines to <br />.
@@ -36,19 +24,6 @@ if (isBrowser() && "DOMParser" in window) {
 export function newlineToBreak(str: string, count: number = 1): string {
 	const brk: string = "<br />".repeat(count);
 	return str.replace(/\r\n|\n|\r/g, brk);
-}
-
-/**
- * Takes a string of HTML and uses the DOMParser class to parse it into
- * HTML nodes.  This function will work outside of a browser environment
- * by using JSDOM when the browser window is not available.
- * @param html {string} - text string with HTML tags
- * @return an HTML Document instance
- */
-export function parseHTML(html: string): Document {
-	const doc: Document = domParser.parseFromString(html, "text/html");
-	debug("parseHTML: %O", doc);
-	return doc;
 }
 
 /**

@@ -5,11 +5,6 @@
 <dd><p>Takes a string that may contain newline characters and converts the
 newlines to <br />.</p>
 </dd>
-<dt><a href="#parseHTML">parseHTML(html)</a> ⇒</dt>
-<dd><p>Takes a string of HTML and uses the DOMParser class to parse it into
-HTML nodes.  This function will work outside of a browser environment
-by using JSDOM when the browser window is not available.</p>
-</dd>
 <dt><a href="#translateHTML">translateHTML(text)</a> ⇒ <code>string</code></dt>
 <dd><p>Takes an input string and replaces special HTML tokens with their string
 eqivalents.  e.g. &nbsp; is converted to a space</p>
@@ -34,19 +29,6 @@ newlines to <br />.
 - str <code>string</code> - the string to search for newlines to replace
 - count <code>number</code> <code> = 1</code> - the number of times each break string
 should be repeated.  The default is to only have one string.
-
-<a name="parseHTML"></a>
-
-## parseHTML(html) ⇒
-Takes a string of HTML and uses the DOMParser class to parse it into
-HTML nodes.  This function will work outside of a browser environment
-by using JSDOM when the browser window is not available.
-
-**Kind**: global function  
-**Returns**: an HTML Document instance  
-**Params**
-
-- html <code>string</code> - text string with HTML tags
 
 <a name="translateHTML"></a>
 

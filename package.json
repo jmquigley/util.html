@@ -1,6 +1,6 @@
 {
 	"name": "util.html",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "HTML helper functions",
 	"private": false,
@@ -19,18 +19,12 @@
 	"module": "./index.es.min.js",
 	"types": "./index.d.ts",
 	"files": [
-		"cli.js",
-		"index.js",
 		"index.*.min.js",
 		"index.d.ts"
 	],
 	"dependencies": {
-		"canvas": "^2.4.1",
-		"jsdom": "^14.0.0",
 		"lodash": "^4.17.11",
-		"util.constants": "^0.0.26",
-		"util.toolbox": "^0.0.77",
-		"ws": "^6.2.1"
+		"util.constants": "^0.0.26"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.3",
@@ -44,7 +38,6 @@
 		"@babel/runtime": "^7.4.3",
 		"@types/fs-extra": "5.0.5",
 		"@types/jest": "^24.0.11",
-		"@types/jsdom": "^12.2.3",
 		"@types/lodash": "^4.14.123",
 		"@types/node": "^11.13.4",
 		"@types/power-assert": "^1.5.0",
@@ -61,7 +54,6 @@
 		"tslint": "^5.15.0",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.4.3",
-		"util.fixture": "0.0.72",
 		"util.pkgwrap": "^0.0.112",
 		"webpack": "^4.30.0",
 		"webpack-cli": "^3.3.0"
@@ -85,6 +77,6 @@
 		"lint": "pkgwrap --lint",
 		"manifest": "npm pack --dry-run",
 		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
-		"test": "node ./cli.js && jest"
+		"test": "jest"
 	}
 }

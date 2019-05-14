@@ -14,6 +14,15 @@ eqivalents.  e.g. &nbsp; is converted to a space</p>
 of a string.  It will also replace all u+200b and &nbsp; characters to &#39; &#39;
 before the trim (so it can remove all types of spaces)</p>
 </dd>
+<dt><a href="#getTextWidth">getTextWidth(text, font)</a> ⇒</dt>
+<dd><p>Takes an input text string and uses the canvas element to determine the
+width of the string in pixels.  This is a way to dynamically find it
+based on the font and the size.  The font uses the following format
+as a string:</p>
+<pre><code>|{weight}| {point size in px} {font family}
+</code></pre><p>e.g.
+    &quot;bold 12px aria&quot;</p>
+</dd>
 </dl>
 
 <a name="newlineToBreak"></a>
@@ -54,4 +63,26 @@ before the trim (so it can remove all types of spaces)
 **Params**
 
 - text <code>string</code> - the text string to trim
+
+<a name="getTextWidth"></a>
+
+## getTextWidth(text, font) ⇒
+Takes an input text string and uses the canvas element to determine the
+width of the string in pixels.  This is a way to dynamically find it
+based on the font and the size.  The font uses the following format
+as a string:
+
+    |{weight}| {point size in px} {font family}
+
+e.g.
+    "bold 12px aria"
+
+**Kind**: global function  
+**Returns**: a number representing the width in pixels.  
+**Params**
+
+- text <code>string</code> - the input string to measure its length
+- font <code>string</code> <code> = null</code> - the font settings for the input string. This
+is needed to properly compute the number of pixels becuase it will
+change based on the font used.
 

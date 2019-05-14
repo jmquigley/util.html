@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<title>util.html demo</title>
+		<link rel="icon" href="data:," />
+		<script type="text/javascript" src="./index.umd.min.js"></script>
+	</head>
+	<body>
+		<h1>HTML Utility Test</h1>
+		<p>
+			"test string 1" (default)<br />
+			width: <span id="w1"></span><br /><br />
+
+			"test string 2" (12px aria)<br />
+			width: <span id="w2"></span><br /></br />
+		</p>
+	</body>
+	<script>
+		let width = getTextWidth("test string 1");
+		document.getElementById("w1").innerHTML = width;
+
+		width = getTextWidth("test string 1", "12px aria");
+		document.getElementById("w2").innerHTML = width;
+	</script>
+</html>

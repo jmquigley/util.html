@@ -1,3 +1,4 @@
+import {unitToNumber} from "util.calc";
 import {sp} from "util.constants";
 import {roundUp} from "util.toolbox";
 import {waitPromise} from "util.wait";
@@ -8,6 +9,12 @@ declare global {
 	interface Window {
 		canvas: any;
 	}
+}
+
+export interface FontInfo {
+	family?: string[];
+	size?: number;
+	weight?: string;
 }
 
 const chevrons = {
@@ -64,6 +71,71 @@ export function trimHTML(text: string): string {
 	return translateHTML(text)
 		.replace(reSPC, " ")
 		.trim();
+}
+
+/**
+ * Reads the current font style information from the body of the current document.
+ * Note that this may NOT be the same as the font for an element as that can
+ * be changed.  This is useful in an app where the UI is controlling the
+ * main font.
+ * The style info is saved in an FontInfo structure.  It contains these fields:
+ *
+ * - `fammily {string[]}` - the array of fonts for this family for this page.
+ * - `size {number}` - the size of the font width in pixels (as a number)
+ * - `wegith {string}` - the font weight per the CSS spec.
+ *
+ * @param rootWindow=window {Element} - the window where the body element
+ * whose styles the font information will be retrieved can be found.  The
+ * default is the body of the document.
+ * @param defaultFamily="Arial" {string} - if the font family is not found
+ * then this is the default used.
+ * @param defaultSize=12 {number} - if the font size can't be found then this
+ * default is used.
+ * @param defaultWeight="400" {string} - if the font weight can't be found
+ * then this default is used.
+ * @returns a `FontInfo` object with the fields family, size, and weight.
+ */
+export function getFontInfo(
+	rootWindow: any = window,
+	defaultFamily: string = "Arial",
+	defaultSize: number = 12,
+	defaultWeight: string = "400"
+): FontInfo {
+	const info: FontInfo = {
+		family: defaultFamily.split(",").map((it: string) => it.trim()),
+		size: defaultSize,
+		weight: defaultWeight
+	};
+
+	if (rootWindow) {
+		const style = rootWindow.getComputedStyle(
+			rootWindow.document.body,
+			null
+		);
+
+		if (style) {
+			const family = style.getPropertyValue("font-family");
+			if (family) {
+				info.family = family
+					.replace(/[\'\"]/g, "")
+					.split(",")
+					.map((it: string) => it.trim());
+			}
+
+			const size = style.getPropertyValue("font-size");
+			if (size) {
+				info.size = unitToNumber(size);
+			}
+
+			const weight = style.getPropertyValue("font-weight");
+			if (weight) {
+				info.weight = weight;
+			}
+		}
+	}
+
+	debug("getFontInfo -> %O", info);
+	return info;
 }
 
 /**

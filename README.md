@@ -33,6 +33,7 @@ This module contains custom HTML manipulation functions.
 
 #### functions
 
+- [getFontWidth](docs/index.md#getFontInfo) - Reads the current font style information from the body of the current document.
 - [getTextWidth](docs/index.md#getTextWidth) - Takes an input string and font settings and computes the pixel width of the string.
 - [newlineToBreak](docs/index.md#newlineToBreak) - takes a string with newline characters and replaces them with `<br />`
 - [translateHTML](docs/index.md#translateHTML) - converts special HTML characters to their single character equivalents (such as `&quote;` to `"`).

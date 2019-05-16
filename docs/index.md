@@ -14,6 +14,18 @@ eqivalents.  e.g. &nbsp; is converted to a space</p>
 of a string.  It will also replace all u+200b and &nbsp; characters to &#39; &#39;
 before the trim (so it can remove all types of spaces)</p>
 </dd>
+<dt><a href="#getFontInfo">getFontInfo(rootWindow, defaultFamily, defaultSize, defaultWeight)</a> ⇒</dt>
+<dd><p>Reads the current font style information from the body of the current document.
+Note that this may NOT be the same as the font for an element as that can
+be changed.  This is useful in an app where the UI is controlling the
+main font.
+The style info is saved in an FontInfo structure.  It contains these fields:</p>
+<ul>
+<li><code>fammily {string[]}</code> - the array of fonts for this family for this page.</li>
+<li><code>size {number}</code> - the size of the font width in pixels (as a number)</li>
+<li><code>wegith {string}</code> - the font weight per the CSS spec.</li>
+</ul>
+</dd>
 <dt><a href="#getTextWidth">getTextWidth(text, font)</a> ⇒</dt>
 <dd><p>Takes an input text string and uses the canvas element to determine the
 width of the string in pixels.  This is a way to dynamically find it
@@ -63,6 +75,33 @@ before the trim (so it can remove all types of spaces)
 **Params**
 
 - text <code>string</code> - the text string to trim
+
+<a name="getFontInfo"></a>
+
+## getFontInfo(rootWindow, defaultFamily, defaultSize, defaultWeight) ⇒
+Reads the current font style information from the body of the current document.
+Note that this may NOT be the same as the font for an element as that can
+be changed.  This is useful in an app where the UI is controlling the
+main font.
+The style info is saved in an FontInfo structure.  It contains these fields:
+
+- `fammily {string[]}` - the array of fonts for this family for this page.
+- `size {number}` - the size of the font width in pixels (as a number)
+- `wegith {string}` - the font weight per the CSS spec.
+
+**Kind**: global function  
+**Returns**: a `FontInfo` object with the fields family, size, and weight.  
+**Params**
+
+- rootWindow <code>Element</code> <code> = window</code> - the window where the body element
+whose styles the font information will be retrieved can be found.  The
+default is the body of the document.
+- defaultFamily <code>string</code> <code> = &quot;\&quot;Arial\&quot;&quot;</code> - if the font family is not found
+then this is the default used.
+- defaultSize <code>number</code> <code> = 12</code> - if the font size can't be found then this
+default is used.
+- defaultWeight <code>string</code> <code> = &quot;\&quot;400\&quot;&quot;</code> - if the font weight can't be found
+then this default is used.
 
 <a name="getTextWidth"></a>
 

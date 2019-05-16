@@ -3,7 +3,7 @@ import {sp} from "util.constants";
 import {roundUp} from "util.toolbox";
 import {waitPromise} from "util.wait";
 
-const debug = require("debug")("util.html");
+// const debug = require("debug")("util.html");
 
 declare global {
 	interface Window {
@@ -134,7 +134,8 @@ export function getFontInfo(
 		}
 	}
 
-	debug("getFontInfo -> %O", info);
+	// debug("getFontInfo -> %O", info);
+
 	return info;
 }
 
@@ -169,14 +170,14 @@ export function getTextWidth(text: string, font: string = null): number {
 
 	const metrics = context.measureText(text);
 
-	debug(
-		"getTextWidth -> canvas: %O, context: %O, metrics: %O, text: %O, font: %O",
-		canvas,
-		context,
-		metrics,
-		text,
-		font
-	);
+	// 	debug(
+	// 		"getTextWidth -> canvas: %O, context: %O, metrics: %O, text: %O, font: %O",
+	// 		canvas,
+	// 		context,
+	// 		metrics,
+	// 		text,
+	// 		font
+	// 	);
 
 	return roundUp(metrics.width);
 }

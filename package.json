@@ -1,9 +1,9 @@
 {
 	"name": "util.html",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "HTML helper functions",
-	"debug": true,
+	"debug": false,
 	"private": false,
 	"license": "MIT",
 	"repository": {

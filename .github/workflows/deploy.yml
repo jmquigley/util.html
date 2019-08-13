@@ -1,6 +1,6 @@
 name: util.html workflow
 
-on: [push]
+on:
   push:
     tags:
     - /^v\d+\.\d+\.\d+(-[\.\w]+)?/

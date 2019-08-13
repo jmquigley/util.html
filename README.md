@@ -31,6 +31,10 @@ This module contains custom HTML manipulation functions.
 
 ## API
 
+#### Attributes
+
+- `events` - an array of possible events that can be used in javascript for event listeners.  The list was taken from [MDN](https://developer.mozilla.org/en-US/docs/Web/Events).
+
 #### functions
 
 - [getFontWidth](docs/index.md#getFontInfo) - Reads the current font style information from the body of the current document.

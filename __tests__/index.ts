@@ -5,6 +5,7 @@ import puppeteer from "puppeteer";
 import {sp} from "util.constants";
 import {cleanup, Fixture} from "util.fixture";
 import {
+	events,
 	FontInfo,
 	getFontInfo,
 	getTextWidth,
@@ -111,4 +112,12 @@ test("Test getFontInfo with an empty doc to get defaults", () => {
 	assert(info.family[0] === "Arial");
 	assert(info.size === 12);
 	assert(info.weight === "400");
+});
+
+test("Check the type and length of the events list array", () => {
+	assert(events);
+	assert(events instanceof Array);
+	assert(events.length === 168);
+
+	debug(events);
 });

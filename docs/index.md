@@ -31,8 +31,7 @@ The style info is saved in an FontInfo structure.  It contains these fields:</p>
 width of the string in pixels.  This is a way to dynamically find it
 based on the font and the size.  The font uses the following format
 as a string:</p>
-<pre><code>|{weight}| {point size in px} {font family}
-</code></pre><p>e.g.
+<pre><code>|{weight}| {point size in px} {font family}</code></pre><p>e.g.
     &quot;bold 12px aria&quot;</p>
 </dd>
 </dl>

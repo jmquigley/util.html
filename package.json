@@ -1,6 +1,6 @@
 {
 	"name": "util.html",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "HTML helper functions",
 	"debug": false,
@@ -14,7 +14,7 @@
 		"url": "https://github.com/jmquigley/util.html/issues"
 	},
 	"engines": {
-		"node": ">=7.x"
+		"node": ">=10.x"
 	},
 	"prettier": "@jmquigley/prettier-config",
 	"main": "./index.umd.min.js",

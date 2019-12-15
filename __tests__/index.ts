@@ -16,10 +16,11 @@ import {
 } from "../index";
 
 const debug = require("debug")("util.html.test");
+const timeout: number = 20000;
 
 let browser: any = null;
-let page: any = null;
 let dom: any = null;
+let page: any = null;
 
 afterAll(async (done) => {
 	await browser.close();
@@ -51,73 +52,105 @@ beforeEach(() => {
 	assert(dom);
 });
 
-test("Test translation of HTML string entities", () => {
-	assert(translateHTML("abc &quot; def") === 'abc " def');
-	assert(translateHTML("abc &nbsp; def") === "abc   def");
-	assert(translateHTML("abc &amp; def") === "abc & def");
-	assert(translateHTML("abc &lt; def") === "abc < def");
-	assert(translateHTML("abc &gt; def") === "abc > def");
-});
+test(
+	"Test translation of HTML string entities",
+	() => {
+		assert(translateHTML("abc &quot; def") === 'abc " def');
+		assert(translateHTML("abc &nbsp; def") === "abc   def");
+		assert(translateHTML("abc &amp; def") === "abc & def");
+		assert(translateHTML("abc &lt; def") === "abc < def");
+		assert(translateHTML("abc &gt; def") === "abc > def");
+	},
+	timeout
+);
 
-test("Test special HTML trim function", () => {
-	assert(trimHTML(`&nbsp; abc ${sp}`) === "abc");
-	assert(trimHTML(`abc &nbsp; def`) === "abc   def");
-	assert(trimHTML(`${sp}abc${sp}def${sp}`) === "abc def");
-	assert(trimHTML(`&nbsp;abc&nbsp;def&nbsp;`) === "abc def");
-});
+test(
+	"Test special HTML trim function",
+	() => {
+		assert(trimHTML(`&nbsp; abc ${sp}`) === "abc");
+		assert(trimHTML(`abc &nbsp; def`) === "abc   def");
+		assert(trimHTML(`${sp}abc${sp}def${sp}`) === "abc def");
+		assert(trimHTML(`&nbsp;abc&nbsp;def&nbsp;`) === "abc def");
+	},
+	timeout
+);
 
-test("Test changing newlines to the html break tag", () => {
-	assert(newlineToBreak(`\ntest\n`) === "<br />test<br />");
-	assert(newlineToBreak(`\r\ntest\r\n`) === "<br />test<br />");
-	assert(newlineToBreak(`\rtest\r`) === "<br />test<br />");
-	assert(newlineToBreak(`\nte\nst\r`) === "<br />te<br />st<br />");
-});
+test(
+	"Test changing newlines to the html break tag",
+	() => {
+		assert(newlineToBreak(`\ntest\n`) === "<br />test<br />");
+		assert(newlineToBreak(`\r\ntest\r\n`) === "<br />test<br />");
+		assert(newlineToBreak(`\rtest\r`) === "<br />test<br />");
+		assert(newlineToBreak(`\nte\nst\r`) === "<br />te<br />st<br />");
+	},
+	timeout
+);
 
-test("Test using multiple break strings", () => {
-	assert(newlineToBreak("test\n", 2) === "test<br /><br />");
-});
+test(
+	"Test using multiple break strings",
+	() => {
+		assert(newlineToBreak("test\n", 2) === "test<br /><br />");
+	},
+	timeout
+);
 
-test("Test the getTextWidth function", async () => {
-	let width = getTextWidth("test string");
-	assert(width);
-	assert(width > 0);
+test(
+	"Test the getTextWidth function",
+	async () => {
+		let width = getTextWidth("test string");
+		assert(width);
+		assert(width > 0);
 
-	width = getTextWidth("test string", "12px arial");
-	assert(width);
-	assert(width > 0);
+		width = getTextWidth("test string", "12px arial");
+		assert(width);
+		assert(width > 0);
 
-	let html = await page.$eval("#w1", (e) => e.innerHTML);
-	assert(html);
-	assert(Number(html) > 0);
+		let html = await page.$eval("#w1", (e) => e.innerHTML);
+		assert(html);
+		assert(Number(html) > 0);
 
-	html = await page.$eval("#w2", (e) => e.innerHTML);
-	assert(html);
-	assert(Number(html) > 0);
-});
+		html = await page.$eval("#w2", (e) => e.innerHTML);
+		assert(html);
+		assert(Number(html) > 0);
+	},
+	timeout
+);
 
-test("Test using the getFontInfo function", () => {
-	const info: FontInfo = getFontInfo(dom.window);
+test(
+	"Test using the getFontInfo function",
+	() => {
+		const info: FontInfo = getFontInfo(dom.window);
 
-	assert(info);
-	assert(info.family instanceof Array);
-	assert(info.family[0] === "Arial");
-	assert(info.size === 16);
-	assert(info.weight === "400");
-});
+		assert(info);
+		assert(info.family instanceof Array);
+		assert(info.family[0] === "Arial");
+		assert(info.size === 16);
+		assert(info.weight === "400");
+	},
+	timeout
+);
 
-test("Test getFontInfo with an empty doc to get defaults", () => {
-	const info = getFontInfo(null);
+test(
+	"Test getFontInfo with an empty doc to get defaults",
+	() => {
+		const info = getFontInfo(null);
 
-	assert(info.family instanceof Array);
-	assert(info.family[0] === "Arial");
-	assert(info.size === 12);
-	assert(info.weight === "400");
-});
+		assert(info.family instanceof Array);
+		assert(info.family[0] === "Arial");
+		assert(info.size === 12);
+		assert(info.weight === "400");
+	},
+	timeout
+);
 
-test("Check the type and length of the events list array", () => {
-	assert(events);
-	assert(events instanceof Array);
-	assert(events.length === 168);
+test(
+	"Check the type and length of the events list array",
+	() => {
+		assert(events);
+		assert(events instanceof Array);
+		assert(events.length === 168);
 
-	debug(events);
-});
+		debug(events);
+	},
+	timeout
+);
